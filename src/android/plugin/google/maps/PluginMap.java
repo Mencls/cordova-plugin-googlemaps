@@ -62,6 +62,9 @@ public class PluginMap extends MyPlugin {
       if (controls.has("myLocationButton")) {
         settings.setMyLocationButtonEnabled(controls.getBoolean("myLocationButton"));
       }
+      if (controls.has("mapToolbar")) {
+        settings.setMapToolbarEnabled(controls.getBoolean("mapToolbar"));
+      }
     }
     
     //gestures
@@ -453,6 +456,20 @@ public class PluginMap extends MyPlugin {
     Boolean isEnabled = args.getBoolean(1);
     UiSettings uiSettings = map.getUiSettings();
     uiSettings.setCompassEnabled(isEnabled);
+    this.sendNoResult(callbackContext);
+  }
+
+    /**
+   * Enable the map toolbar if set true
+   * @param args
+   * @param callbackContext
+   * @throws JSONException 
+   */
+  @SuppressWarnings("unused")
+  private void setMapToolbarEnabled(final JSONArray args, final CallbackContext callbackContext) throws JSONException {
+    Boolean isEnabled = args.getBoolean(1);
+    UiSettings uiSettings = map.getUiSettings();
+    uiSettings.setMapToolbarEnabled(isEnabled);
     this.sendNoResult(callbackContext);
   }
 
