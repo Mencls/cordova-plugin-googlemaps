@@ -596,6 +596,11 @@ App.prototype.setCompassEnabled = function(enabled) {
     enabled = parseBoolean(enabled);
     cordova.exec(null, self.errorHandler, PLUGIN_NAME, 'exec', ['Map.setCompassEnabled', enabled]);
 };
+App.prototype.setMapToolbarEnabled = function(enabled) {
+    var self = this;
+    enabled = parseBoolean(enabled);
+    cordova.exec(null, self.errorHandler, PLUGIN_NAME, 'exec', ['Map.setMapToolbarEnabled', enabled]);
+};
 App.prototype.getMyLocation = function(params, success_callback, error_callback) {
     var args = [params || {}, success_callback || null, error_callback];
     if (typeof args[0] === "function") {
